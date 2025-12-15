@@ -20,8 +20,8 @@ Route::prefix('vendor')->group(function () {
         Route::resource('products', ProductController::class)->names('vendor.products');
         Route::post('products/data', [ProductController::class, 'getProducts'])->name('vendor.products.data');
         Route::post('products/updateStatus', [ProductController::class, 'updateStatus'])->name('vendor.products.updateStatus');
-        Route::resource('social-media-links', SocialMediaLinkController::class)->names('vendor.social-media-links');
-        Route::post('social-media-links/data', [SocialMediaLinkController::class, 'getData'])->name('vendor.social-media-links.data');
+        //Route::resource('social-media-links', SocialMediaLinkController::class)->names('vendor.social-media-links');
+        //Route::post('social-media-links/data', [SocialMediaLinkController::class, 'getData'])->name('vendor.social-media-links.data');
 
         Route::get('reviews', [ProductReviewController::class, 'index'])->name('vendor.reviews.index');
         Route::get('reviews/data', [ProductReviewController::class, 'getData'])->name('vendor.reviews.data');
@@ -34,7 +34,7 @@ Route::prefix('vendor')->group(function () {
         Route::delete('orders/{id}', [OrderController::class, 'destroy'])->name('vendor.orders.destroy');
 
         /** Language Switch */
-        Route::post('/change-language', [LanguageController::class, 'changeLanguage'])->name('vendor.change.language');
+       // Route::post('/change-language', [LanguageController::class, 'changeLanguage'])->name('vendor.change.language');
 
         /** Profile */
         Route::get('profile/edit', [ProfileController::class, 'edit'])->name('vendor.profile.edit');

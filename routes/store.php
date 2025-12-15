@@ -19,7 +19,10 @@ use App\Http\Controllers\Store\WishlistController;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [StoreController::class, 'index'])->name('xylo.home');
+Route::get('/', [RegisterController::class, 'showRegistrationForm'])->name('customer.register');
+Route::post('/', [RegisterController::class, 'register']);
+
+Route::get('/home', [StoreController::class, 'index'])->name('xylo.home');
 Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
 Route::post('/change-currency', [CurrencyController::class, 'changeCurrency'])->name('change.currency');
 
@@ -28,7 +31,7 @@ Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
-Route::post('/change-store-language', [LanguageController::class, 'changeLanguage'])->name('change.store.language');
+//Route::post('/change-store-language', [LanguageController::class, 'changeLanguage'])->name('change.store.language');
 
 Route::post('/cart/apply-coupon', [CartController::class, 'applyCoupon'])->name('cart.applyCoupon');
 Route::post('/cart/remove-coupon', [CartController::class, 'removeCoupon'])->name('cart.removeCoupon');
@@ -55,8 +58,8 @@ Route::prefix('customer')->name('customer.')->group(function () {
         Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
         Route::post('login', [LoginController::class, 'login']);
 
-        Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-        Route::post('register', [RegisterController::class, 'register']);
+        // Route::get('/', [RegisterController::class, 'showRegistrationForm'])->name('register');
+        // Route::post('/', [RegisterController::class, 'register']);
 
         Route::get('forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
         Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
@@ -78,4 +81,4 @@ Route::prefix('customer')->name('customer.')->group(function () {
     });
 });
 
-Route::get('/stripe/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout.process');
+//Route::get('/stripe/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout.process');

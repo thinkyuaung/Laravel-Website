@@ -72,7 +72,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::post('brands/update-status', [BrandController::class, 'updateStatus'])->name('brands.updateStatus');
 
     /* change Language */
-    Route::post('/change-language', [LanguageController::class, 'changeLanguage'])->name('change.language');
+    //Route::post('/change-language', [LanguageController::class, 'changeLanguage'])->name('change.language');
 
     /* Menus */
     Route::resource('menus', MenuController::class);
@@ -88,8 +88,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::post('/banners/update-status', [BannerController::class, 'updateStatus'])->name('banners.updateStatus');
 
     /* Social Media Links */
-    Route::resource('social-media-links', SocialMediaLinkController::class);
-    Route::post('social-media-links/data', [SocialMediaLinkController::class, 'getData'])->name('social-media-links.data');
+   // Route::resource('social-media-links', SocialMediaLinkController::class);
+    //Route::post('social-media-links/data', [SocialMediaLinkController::class, 'getData'])->name('social-media-links.data');
 
     /* Orders */
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
